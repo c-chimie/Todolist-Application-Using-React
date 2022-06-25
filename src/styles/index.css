@@ -1,6 +1,7 @@
 .todos{
     text-align: center;
     font-size: 100px;
+    font-weight: 100;
     margin-top: 20px;
     color: rgb(228, 209, 212);
 }
@@ -13,23 +14,36 @@
 .list-item{
     border: 1px solid #eee;
     font-size: large;
+    font-weight: 200;
 }
 .todo{
     border-bottom: 1px solid #eee;
     padding-left: 40px;
     margin-top: 15px;
+    width: 100%;
+    display: inline-block;
 }
 .input-box{
     margin: 20px;
     font-size: large;
-    width: 92%;
+    font-weight: 200;
+    width: 90%;
     border: none;
     padding: 5px;
+    outline: 0;
 }
 .counter{
     font-size: x-small;
     padding-left: 20px;
     margin-top: 15px;
 }
-
-/* create css to make delete button appear only on hover */
+.button{
+    background-color: white;
+    border: none;
+    float: right;
+    margin-right: 30px;
+    display: none;
+}
+.todo:hover .button{
+    display:inline;
+}

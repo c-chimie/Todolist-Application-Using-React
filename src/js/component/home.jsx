@@ -10,18 +10,22 @@ const Home = () => {
 	// add state to my input
 	const [input, setInput] = useState('')
 
+
 	// when the form is submitted, this is what happens (a task is added)
 	const handleSubmit = (event) => {
 		event.preventDefault()
-		const addTask = {
-			id: Math.floor(Math.random() * 1000),
-			text: input,
-			completed: false
+		if(input != ""){
+			const addTask = {
+				id: Math.floor(Math.random() * 1000),
+				text: input,
+				completed: false
+			} // if input is empty, do not let user submit
+	
+			setTasks([...tasks, addTask]) // add the user input to the state (use spread operator to copy existing array of tasks)
+	
+			setInput('') // make the input box appear empty again after the user submits
 		}
-
-		setTasks([...tasks, addTask]) // add the user input to the state (use spread operator to copy existing array of tasks)
-
-		setInput('') // make the input box appear empty again after the user submits
+	
 	}
 
 	// delete tasks
@@ -29,6 +33,8 @@ const Home = () => {
 		let filteredTasks = [...tasks].filter((tasks) => tasks.id !== id)
 		setTasks(filteredTasks)
 	}
+
+	console.log(input)
 
 	return (
 		<div>
@@ -50,7 +56,7 @@ const Home = () => {
 &#10060;</button></p>
 					</div>
 				))}
-				<p className="counter">{tasks.length} tasks left</p>
+				<p className="counter"> {(tasks.length === 1) ? "1 task left" : `${tasks.length} tasks left`}</p>
 				</div>
 
 			</div>
